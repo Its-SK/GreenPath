@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GreenPath Diagnostic</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header class="header">
+    <h1>GreenPath Diagnostic</h1>
+  </header>
+
+  <!-- Location Title -->
+  <section class="location-title">
+    <h3>Our Location</h3>
+  </section>
+
+  <!-- Zoomed Satellite Map inside Card (clickable) -->
+  <div class="map-wrapper">
+    <a href="https://www.google.com/maps/dir/?api=1&destination=22.442580,87.629631" target="_blank" title="Click to get directions">
+      <div class="card map-card">
+        <iframe
+          src="https://maps.google.com/maps?q=22.442580,87.629631&z=19&output=embed&t=k"
+          width="100%"
+          height="400"
+          style="border:0; pointer-events: none;"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </a>
+  </div>
+
+  <!-- Services Title -->
+  <section class="services">
+    <h2>Our Services</h2>
+  </section>
+
+  <!-- Floating Cards Section -->
+  <div class="cards-container">
+    <div class="card">
+      <img src="https://via.placeholder.com/300x200" alt="Image 1">
+      <p>Blood Test - Affordable and accurate diagnostics.</p>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/300x200" alt="Image 2">
+      <p>ECG Services - Quick and reliable results.</p>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/300x200" alt="Image 3">
+      <p>X-Ray Imaging - Clear and detailed reports.</p>
+    </div>
+  </div>
+
+</body>
+</html>
