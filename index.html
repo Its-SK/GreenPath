@@ -4,29 +4,132 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GreenPath Diagnostic</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f6f6f6;
+    }
+
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #2e7d32;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      z-index: 1000;
+    }
+    .header img {
+      height: 50px;
+      margin-right: 15px;
+      
+    }
+    .header h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    /* Footer */
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #2e7d32;
+      color: white;
+      text-align: center;
+      padding: 1px 0;
+    }
+
+    .section-divider {
+      margin-top: 80px;
+      text-align: center;
+      border-bottom: 2px solid #ccc;
+      margin-bottom: 10px;
+    }
+
+    /* Map Wrapper */
+    .map-wrapper {
+      padding: 15px;
+    }
+
+    .map-card {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    /* Cards Container */
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .card p {
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .card img {
+        height: 150px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card img {
+        height: 120px;
+      }
+    }
+
+    body {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Header Section -->
+  <!-- Fixed Header -->
   <header class="header">
+  <div style="display: flex; align-items: center; justify-content: center;">
+    <img src="logo.png" alt="GreenPath Logo">
     <h1>GreenPath Diagnostic</h1>
-  </header>
+  </div>
+</header>
 
   <!-- Location Title -->
-  <section class="location-title">
-    <h3>Our Location</h3>
+  <section class="section-divider">
+    <h3>📍 Our Location</h3>
   </section>
 
-  <!-- Zoomed Satellite Map inside Card (clickable) -->
+  <!-- Map Section -->
   <div class="map-wrapper">
-    <a href="https://www.google.com/maps/dir/?api=1&destination=22.442580,87.629631" target="_blank" title="Click to get directions">
+    <a href="https://www.google.com/maps/dir/?api=1&destination=22.442603,87.629621" target="_blank" title="Click to get directions">
       <div class="card map-card">
         <iframe
-          src="https://maps.google.com/maps?q=22.442580,87.629631&z=19&output=embed&t=k"
-          width="100%"
-          height="400"
-          style="border:0; pointer-events: none;"
+          src="https://maps.google.com/maps?q=22.442603,87.629621&z=20&output=embed&t=k"
+          style="border:0; width: 100%; height: 400px;"
           allowfullscreen
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade">
@@ -36,25 +139,46 @@
   </div>
 
   <!-- Services Title -->
-  <section class="services">
-    <h2>Our Services</h2>
+  <section class="section-divider">
+    <h2>🩺 Our Services</h2>
   </section>
 
-  <!-- Floating Cards Section -->
+  <!-- Services Cards (3 per row) -->
   <div class="cards-container">
     <div class="card">
-      <img src="https://via.placeholder.com/300x200" alt="Image 1">
-      <p>Blood Test - Affordable and accurate diagnostics.</p>
+      <img src="pathology.jpg" alt="Advanced Pathology">
+      <p><b>Advanced Pathology</b></p>
     </div>
     <div class="card">
-      <img src="https://via.placeholder.com/300x200" alt="Image 2">
-      <p>ECG Services - Quick and reliable results.</p>
+      <img src="ecg.jpg" alt="ECG">
+      <p><b>ECG</b></p>
     </div>
     <div class="card">
-      <img src="https://via.placeholder.com/300x200" alt="Image 3">
-      <p>X-Ray Imaging - Clear and detailed reports.</p>
+      <img src="xray.jpg" alt="Digital X-Ray">
+      <p><b>X-Ray</b> </p>
+    </div>
+    <div class="card">
+      <img src="ncv.jpg" alt="NCV">
+      <p><b>NCV</b></p>
+    </div>
+    <div class="card">
+      <img src="eeg.jpg" alt="EEG">
+      <p><b>EEG</b></p>
+    </div>
+    <div class="card">
+      <img src="pft.jpg" alt="PFT">
+      <p><b>PFT</b></p>
+    </div>
+    <div class="card">
+      <img src="hsg.jpg" alt="HSG">
+      <p><b>HSG</b></p>
     </div>
   </div>
+
+  <!-- Fixed Footer -->
+  <footer class="footer">
+    <p>📞Mobile : 9593966583 || 📩Mail:gpmafijul@gmail.com</p>
+  </footer>
 
 </body>
 </html>
