@@ -38,6 +38,55 @@
   </div>
 
   <section class="section-divider">
+    <h2>👨‍⚕️ Our Doctors</h2>
+  </section>
+
+  <div class="cards-container">
+    
+    <div class="doctor-card" onclick="showDoctorDetails('Dr. Soumyajit Mallick', 'General Physician & Public Health', 'MBBS, MD (WBUHS), CCEBDM', 'Specialist in Heart, Lung, Sugar, BP, Thyroid & Stomach.', 'Every Saturday: 11:00 AM', 'male')">
+      <img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png" alt="Doctor" class="doctor-img">
+      <div class="doc-name">Dr. Soumyajit Mallick</div>
+      <div class="doc-spec">General Physician</div>
+      <span class="doc-badge">Sat 11 AM</span>
+    </div>
+
+    <div class="doctor-card" onclick="showDoctorDetails('Dr. Hetal Patel', 'Gynaecologist & Obstetrician', 'MBBS, MS (Obs & Gynae)', 'Specialist in Pregnancy, Delivery, Infertility & Menstrual Problems.', 'Every Monday: 10:00 AM', 'female')">
+      <img src="https://cdn-icons-png.flaticon.com/512/2922/2922566.png" alt="Doctor" class="doctor-img">
+      <div class="doc-name">Dr. Hetal Patel</div>
+      <div class="doc-spec">Gynaecologist (Female)</div>
+      <span class="doc-badge">Mon 10 AM</span>
+    </div>
+
+    <div class="doctor-card" onclick="showDoctorDetails('Dr. Goutam Mandal', 'Newborn & Child Specialist', 'MBBS (Cal), DCH (Cal)', 'Ex-P.G. Hospital. Specialist in Child & Newborn diseases.', 'Every Thursday: 4:00 PM', 'male')">
+      <img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png" alt="Doctor" class="doctor-img">
+      <div class="doc-name">Dr. Goutam Mandal</div>
+      <div class="doc-spec">Child Specialist</div>
+      <span class="doc-badge">Thu 4 PM</span>
+    </div>
+
+    <div class="doctor-card" onclick="showDoctorDetails('Dr. Sudeb Ranjan Paria', 'General Physician', 'MBBS (Hons), I.C.G.M.E.R (SSKM)', 'General Physician (SSKM Hospital).', 'Wed & Fri: 1:00 PM', 'male')">
+      <img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png" alt="Doctor" class="doctor-img">
+      <div class="doc-name">Dr. Sudeb Ranjan Paria</div>
+      <div class="doc-spec">General Physician</div>
+      <span class="doc-badge">Wed/Fri 1 PM</span>
+    </div>
+
+    <div class="doctor-card" onclick="showDoctorDetails('Dr. Uttam Dey', 'Orthopedic Surgeon', 'MBBS (Cal), M.S (Cal)', 'Specialist in Arthritis, Bone, Joint, Ligament, Fracture & Muscle Pain.', 'Every Tuesday: 2:00 PM', 'male')">
+      <img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png" alt="Doctor" class="doctor-img">
+      <div class="doc-name">Dr. Uttam Dey</div>
+      <div class="doc-spec">Orthopedic Surgeon</div>
+      <span class="doc-badge">Tue 2 PM</span>
+    </div>
+
+    <div class="doctor-card" onclick="showDoctorDetails('Dr. M. Rahaman', 'General Physician', 'MBBS (Mid), Reg No. 89435', 'Ex-House Physician Medinipur & Uluberia Medical College. Currently at Uluberia ESI.', 'Every Saturday: 3:00 PM', 'male')">
+      <img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png" alt="Doctor" class="doctor-img">
+      <div class="doc-name">Dr. M. Rahaman</div>
+      <div class="doc-spec">General Physician</div>
+      <span class="doc-badge">Sat 3 PM</span>
+    </div>
+
+  </div>
+  <section class="section-divider">
     <h2>🩺 Our Services</h2>
   </section>
 
@@ -75,6 +124,34 @@
   <footer class="footer">
     <p>📞 Mobile: 9593966583 || 📩 gpmafijul@gmail.com</p>
   </footer>
+
+  <div id="doctorModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeDocModal()">×</span>
+      <div class="doc-detail-header">
+        <img id="d_img" src="" alt="Doctor" class="doc-detail-img">
+        <h2 id="d_name" style="color: #2e7d32;">Doctor Name</h2>
+        <p id="d_role" style="font-weight: bold; color: #555;">Specialist</p>
+      </div>
+      
+      <div class="detail-row">
+        <span class="detail-label">🎓 Qualifications:</span>
+        <span id="d_qual" class="detail-text">degrees...</span>
+      </div>
+
+      <div class="detail-row">
+        <span class="detail-label">🩺 Expertise:</span>
+        <span id="d_desc" class="detail-text">description...</span>
+      </div>
+
+      <div class="detail-row" style="background: #e8f5e9; padding: 10px; border-radius: 5px;">
+        <span class="detail-label">🕒 Availability:</span>
+        <span id="d_time" class="detail-text" style="font-weight: bold; color: #2e7d32;">Time</span>
+      </div>
+
+      <button class="btn-book-doc" onclick="bookThisDoctor()">📅 Book Appointment Now</button>
+    </div>
+  </div>
 
   <div id="bookingModal" class="modal">
     <div class="modal-content">
@@ -145,7 +222,14 @@
   <script>
     // --- 1. DATA FOR DROPDOWNS ---
     const serviceData = {
-      "Doctor": ["Dr. Soumyajit Mallick (Gen. Physician)", "Dr. Hetal Patel (Ladies & Delivery Expert)", "Dr. Goutam Mandal (New born & Child Expert)", "Dr. Sudeb Ranjan Paria (General Physician)", "Dr. Uttam Dey (Orthopedic Surgeon)", "Dr. M. Rahaman (General Physician)"],
+      "Doctor": [
+        "Dr. Soumyajit Mallick (Gen. Physician)", 
+        "Dr. Hetal Patel (Gynaecologist)", 
+        "Dr. Goutam Mandal (Child Specialist)", 
+        "Dr. Sudeb Ranjan Paria (Gen. Physician)", 
+        "Dr. Uttam Dey (Orthopedic)", 
+        "Dr. M. Rahaman (Gen. Physician)"
+      ],
       "Pathology": ["Blood Sugar (F/PP)", "Malaria/Dengue", "Sodium (Na+) / Potassium (K+)", "Thyroid Profile", "Complete Hemogram", "Lipid Profile"],
       "X-Ray": ["Chest PA View", "Knee Joint", "Spine", "Abdomen"],
       "ECG": ["Standard 12-lead ECG"],
@@ -153,8 +237,9 @@
       "PFT": ["Spirometry"]
     };
 
-    // --- 2. MODAL FUNCTIONS ---
+    // --- 2. MODAL FUNCTIONS (BOOKING) ---
     const modal = document.getElementById("bookingModal");
+    const docModal = document.getElementById("doctorModal");
 
     function openModal() {
       modal.style.display = "block";
@@ -167,13 +252,48 @@
       document.getElementById("serviceType").disabled = true;
     }
 
+    // --- 3. DOCTOR DETAIL FUNCTIONS ---
+    function showDoctorDetails(name, role, qual, desc, time, gender) {
+      document.getElementById("d_name").innerText = name;
+      document.getElementById("d_role").innerText = role;
+      document.getElementById("d_qual").innerText = qual;
+      document.getElementById("d_desc").innerText = desc;
+      document.getElementById("d_time").innerText = time;
+      
+      // Set image based on gender
+      let imgUrl = gender === 'female' 
+        ? "https://cdn-icons-png.flaticon.com/512/2922/2922566.png" 
+        : "https://cdn-icons-png.flaticon.com/512/3774/3774299.png";
+      document.getElementById("d_img").src = imgUrl;
+
+      docModal.style.display = "block";
+    }
+
+    function closeDocModal() {
+      docModal.style.display = "none";
+    }
+
+    function bookThisDoctor() {
+      closeDocModal(); // Close detail popup
+      openModal();     // Open booking form
+      // Auto-select "Doctor" category
+      const catSelect = document.getElementById("serviceCategory");
+      catSelect.value = "Doctor";
+      updateServiceOptions(); // Trigger the dropdown update
+      alert("Please select your doctor from the list in the form.");
+    }
+
+    // Close modals on outside click
     window.onclick = function(event) {
       if (event.target == modal) {
         closeModal();
       }
+      if (event.target == docModal) {
+        closeDocModal();
+      }
     }
 
-    // --- 3. DYNAMIC DROPDOWN LOGIC ---
+    // --- 4. DYNAMIC DROPDOWN LOGIC ---
     function updateServiceOptions() {
       const category = document.getElementById("serviceCategory").value;
       const typeSelect = document.getElementById("serviceType");
@@ -201,7 +321,7 @@
       }
     }
 
-    // --- 4. FORM SUBMISSION ---
+    // --- 5. FORM SUBMISSION ---
     function submitBooking(e) {
       e.preventDefault(); 
 
@@ -209,7 +329,7 @@
       const submitBtn = document.getElementById("submitBtn");
       const loadingMsg = document.getElementById("loadingMsg");
 
-      // ===> IMPORTANT: ENSURE THIS URL IS YOUR UPDATED GOOGLE SCRIPT URL <===
+      // YOUR SCRIPT URL
       const scriptURL = 'https://script.google.com/macros/s/AKfycbwEXj_Fj8SfS1_9io57au3ApL1AGiFERKngnZVVi6XeAGdDxvkpIJH174EgR8lbtaPy/exec';
 
       submitBtn.disabled = true;
